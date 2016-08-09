@@ -1,0 +1,12 @@
+Package: CellMapperData
+Type: Package
+Title: Pre-processed data for use with the CellMapper package
+Version: 0.99.4
+Date: 2016-07-19
+Author: Brad Nelms
+Maintainer: Brad Nelms <bnelms.research@gmail.com>
+Description: Experiment data package. Contains microarray data from several large expression compendia that have been pre-processed for use with the CellMapper package. This pre-processed data is recommended for routine searches using the CellMapper package.
+License: Artistic-2.0
+Depends: ExperimentHub, CellMapper
+Suggests: BiocStyle
+biocViews: ExperimentData, MicroarrayData, ExpressionData

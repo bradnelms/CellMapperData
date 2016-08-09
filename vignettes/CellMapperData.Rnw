@@ -1,0 +1,78 @@
+%\VignetteIndexEntry{CellMapperData Introduction}
+%\VignettePackage{CellMapperData}
+%\VignetteEngine{utils::Sweave}
+
+\documentclass{article}
+
+<<style, eval=TRUE, echo=FALSE, results=tex>>=
+BiocStyle::latex()
+@ 
+
+\newcommand{\exitem}[3]{%
+  \item \texttt{\textbackslash#1\{#2\}} #3 \csname#1\endcsname{#2}.%
+}
+
+\title{Intro to the \Biocpkg{CellMapperData} Package}
+\author{Brad Nelms}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+
+%---------------------------------------------------------
+\section{Introduction}
+%---------------------------------------------------------
+
+\Biocpkg{CellMapperData} contains microarray data from several large expression compendia that have been pre-processed for use with the \Biocpkg{CellMapper} package. These pre-processed datasets are recommended for routine searches using \Biocpkg{CellMapper}. This introduction contains a brief overview of the datasets included in the package. For more examples on how to use \Biocpkg{CellMapper} and \Biocpkg{CellMapperData}, please refer to the \Biocpkg{CellMapper} Vignette and reference \cite{CellMapper}.
+
+%---------------------------------------------------------
+\section{Dataset overview}
+%---------------------------------------------------------
+
+First, access the \Biocpkg{CellMapperData} from ExperimentHub:
+
+<<>>=
+library(ExperimentHub)
+hub <- ExperimentHub()
+x <- query(hub, "CellMapperData")
+x
+@
+
+The \Biocpkg{CellMapperData} package contains 6 microarray datasets that have been pre-processed for use with \Biocpkg{CellMapper}. More information about each dataset can be found in the CellMapperData manual page:
+
+<<eval=FALSE>>=
+?CellMapperData
+@
+
+These datasets can be extracted using their ExperimentHub accession numbers. For instance, to download and load the Allen Brain Atlas dataset (accession 'EH170'), run the following code:
+
+<<>>=
+BrainAtlas <- x[["EH170"]]
+BrainAtlas
+@
+
+Each of these pre-processed datasets can be provided directly to the \Biocpkg{CellMapper} CM.search function to predict genes selectively expressed in a specific cell type. See the \Biocpkg{CellMapper} vignette for more details.
+
+
+%---------------------------------------------------------
+\section{Technical background of dataset processing}
+%---------------------------------------------------------
+
+Each dataset is a CellMapperList object that has been pre-processed using the CM.prep function. The CM.prep function transforms the data using singular value decomposition (SVD), resulting in a matrix, 'B', with the left-singular vectors of original data matrix and a vector, 'd', with the singular values. Singular vectors that account for less variance than an individual sample in the original dataset have been trimed (Kaiser's criterion), thereby removing singular vectors that mainly account for noise:
+
+<<>>=
+names(BrainAtlas)
+dim(BrainAtlas$B)
+length(BrainAtlas$d)
+@
+
+The advantage of this transformation is that it reduces dataset size, and avoids the need to perform a time-consuming SVD transformation before running \Biocpkg{CellMapper}. 
+
+
+\bibliography{bibliography}
+
+\end{document}
+
