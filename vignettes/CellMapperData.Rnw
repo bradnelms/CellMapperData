@@ -54,14 +54,14 @@ BrainAtlas <- x[["EH170"]]
 BrainAtlas
 @
 
-Each of these pre-processed datasets can be provided directly to the \Biocpkg{CellMapper} CM.search function to predict genes selectively expressed in a specific cell type. See the \Biocpkg{CellMapper} vignette for more details.
+Each of these pre-processed datasets can be provided directly to the \Biocpkg{CellMapper} CMsearch function to predict genes selectively expressed in a specific cell type. See the \Biocpkg{CellMapper} vignette for more details.
 
 
 %---------------------------------------------------------
 \section{Technical background of dataset processing}
 %---------------------------------------------------------
 
-Each dataset is a CellMapperList object that has been pre-processed using the CM.prep function. The CM.prep function transforms the data using singular value decomposition (SVD), resulting in a matrix, 'B', with the left-singular vectors of original data matrix and a vector, 'd', with the singular values. Singular vectors that account for less variance than an individual sample in the original dataset have been trimed (Kaiser's criterion), thereby removing singular vectors that mainly account for noise:
+Each dataset is a CellMapperList object that has been pre-processed using the CMprep function. The CMprep function transforms the data using singular value decomposition (SVD), resulting in a matrix, 'B', with the left-singular vectors of original data matrix and a vector, 'd', with the singular values. Singular vectors that account for less variance than an individual sample in the original dataset have been trimed (Kaiser's criterion), thereby removing singular vectors that mainly account for noise:
 
 <<>>=
 names(BrainAtlas)
