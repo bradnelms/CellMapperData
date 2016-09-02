@@ -6,22 +6,22 @@
 Pre-processed data for use with the CellMapper package
 }
 \description{
-Contains microarray data from several large expression compendia that have been pre-processed for use with the \code{CellMapper} package. All datasets are \code{CellMapperList} objects that were pre-processed using the \code{CM.prep} function; these can be provided directly to the \code{CM.search} function. These pre-processed datasets are recommended for routine searches using the \code{CellMapper} package.
+Contains microarray data from several large expression compendia that have been pre-processed for use with the \code{CellMapper} package. All datasets are \code{CellMapperList} objects that were pre-processed using the \code{CMprep} function; these can be provided directly to the \code{CMsearch} function. These pre-processed datasets are recommended for routine searches using the \code{CellMapper} package.
 }
 \details{
 Contains the following six pre-processed datasets:
 
-EH170: pre-processed microarray samples from microdissected human brain regions. Normalized microarray data were downloaded from the Allen Brain Atlas in February 2014 at the link: http://human.brain-map.org/static/download (the 6 files listed under the heading "Complete normalized microarray datasets"). The six normalized datasets were then loaded into R and cancatenated to make a unified expression matrix of 3702 arrays, and pre-processed using the \code{CM.prep} function.
+EH170: pre-processed microarray samples from microdissected human brain regions. Normalized microarray data were downloaded from the Allen Brain Atlas in February 2014 at the link: http://human.brain-map.org/static/download (the 6 files listed under the heading "Complete normalized microarray datasets"). The six normalized datasets were then loaded into R and cancatenated to make a unified expression matrix of 3702 arrays, and pre-processed using the \code{CMprep} function.
 
-EH171: pre-processed microarray samples from the Affymetrix HG_U133PlusV2 platform. The data were obtained from the \code{GSE64985} Bioconductor package and pre-processed using the \code{CM.prep} function. The original dataset contained 9395 arrays from diverse biological samples.
+EH171: pre-processed microarray samples from the Affymetrix HG_U133PlusV2 platform. The data were obtained from the \code{GSE64985} Bioconductor package and pre-processed using the \code{CMprep} function. The original dataset contained 9395 arrays from diverse biological samples.
 
-EH172: pre-processed microarray samples from the Affymetrix HG_U133A platform. The data were obtained from the \code{E.MTAB.62} Bioconductor package and pre-processed using the \code{CM.prep} function. The original dataset contained 5372 arrays from diverse biological samples.
+EH172: pre-processed microarray samples from the Affymetrix HG_U133A platform. The data were obtained from the \code{E.MTAB.62} Bioconductor package and pre-processed using the \code{CMprep} function. The original dataset contained 5372 arrays from diverse biological samples.
 
-EH173: pre-processed microarray samples from the Affymetrix MG_U74Av2 platform. Normalized microarray data were downloaded from Array Express accession E-MTAB-27 (https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-27/) and processed with the R package \code{bias.0.0.3} to reduce the influence of technical bias (Eklund, et al. 2008). Then Mouse Entrez IDs were then mapped to their corresponding human orthologs as described in Nelms, et al. 2016, and the expression matrix was pre-processed with the \code{CM.prep} function. The original dataset contained 1332 arrays from diverse biological samples.
+EH173: pre-processed microarray samples from the Affymetrix MG_U74Av2 platform. Normalized microarray data were downloaded from Array Express accession E-MTAB-27 (https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-27/) and processed with the R package \code{bias.0.0.3} to reduce the influence of technical bias (Eklund, et al. 2008). Then Mouse Entrez IDs were then mapped to their corresponding human orthologs as described in Nelms, et al. 2016, and the expression matrix was pre-processed with the \code{CMprep} function. The original dataset contained 1332 arrays from diverse biological samples.
 
 EH174: pre-processed microarray samples from the human intestine. An intestine-specific subset of the 'Engreitz' and 'Lukk' datsets was obtained as described in Section 5.2 of the \code{CellMapper} package vignette. The unprocessed data contained 582 microarrays from the 'Engreitz' dataset and 130 microarrays from the 'Lukk' dataset.
 
-EH175: pre-processed microarray samples from the human kidney. Normalized microarray data were downloaded from the Gene Expression Omnibus from the following accessions: GSE32691, GSE35488, GSE37455, GSE37460, and GSE47185. The five normalized datasets were then loaded into R and cancatenated to make a unified expression matrix of 463 arrays, and pre-processed using the \code{CM.prep} function.
+EH175: pre-processed microarray samples from the human kidney. Normalized microarray data were downloaded from the Gene Expression Omnibus from the following accessions: GSE32691, GSE35488, GSE37455, GSE37460, and GSE47185. The five normalized datasets were then loaded into R and cancatenated to make a unified expression matrix of 463 arrays, and pre-processed using the \code{CMprep} function.
 
 }
 \author{
@@ -50,7 +50,7 @@ gene expression patterns in human and mouse. Genome Biol 2010, 11:R124.
 Eklund AC, Szallasi Z. Correction of technical bias in clinical microarray data improves concordance with known biological information. Genome Biol 2008, 9:R26.
 }
 \seealso{
-\code{\link[CellMapper]{CM.search}}, \code{\link[CellMapper]{CM.prep}}
+\code{\link[CellMapper]{CMsearch}}, \code{\link[CellMapper]{CMprep}}
 }
 \examples{
 library(ExperimentHub)
